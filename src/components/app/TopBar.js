@@ -22,17 +22,26 @@ const TopBarLg = ({ home }) =>
         style={{ background: "#fff" }}
         iconElementLeft={home ? <MenuIconButton /> : <BackButton />}
         title={
-            <a
+            <div
                 style={{
-                    position: "relative",
-                    float: "left",
                     color: "#03363d",
-                    fontFamily: "Roboto"
+                    display: "flex",
+                    verticalAlign: "center"
                 }}
             >
-                <img alt="zendesk" src={ZendeskImage} height={40} />
+                <a
+                    style={{
+                        verticalAlign: "center",
+                        position: "relative",
+                        float: "left",
+                        color: "#03363d",
+                        fontFamily: "Roboto"
+                    }}
+                >
+                    <img alt="zendesk" src={ZendeskImage} height={40} />
+                </a>
                 Ticket Viewer
-            </a>
+            </div>
         }
     />;
 
