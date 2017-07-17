@@ -6,6 +6,9 @@ ZendeskAPI = ZendeskAPI()
 Utils = Utils()
 complete = False
 
+
+print("Welcome to the Zendesk Ticket Viewer App")
+print()
 while not complete:
     if (ZendeskAPI.loggedIn == True):
         Utils.printMenu()
@@ -24,10 +27,10 @@ while not complete:
         elif (mode.lower() == "exit"):
             complete = True
     else:
-        print("Unfortunately You are Not Logged in. Please enter your email and password to continue")
+        print("You are currently not logged in. Please enter your email and password to continue")
         email = input("Email: ")
         password = input("Password: ")
         try:
             ZendeskAPI.handleLogin(email, password)
         except ZendeskExceptions:
-            print("Invalid Email or Password.")
+            print("Invalid Email or Password. You can reset your password.")

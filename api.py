@@ -13,10 +13,8 @@ class ZendeskAPI:
 
     def handleLogin(self, user, password):
         r = requests.get('https://lorderikir.zendesk.com/api/v2/users.json', auth=(user, password))
-        if(r.status_code != 200):
-            # reject login
-            raise ZendeskExceptions('Unauthorised Login')
-        else:
+        print(r.status_code)
+        if(r.status_code == 200):
             user = r.json()
             self.id = user["users"][0]["id"]
             self.name = user["users"][0]["name"]
@@ -24,6 +22,12 @@ class ZendeskAPI:
             self.password = password
             self.loggedIn = True
             return user
+        elif(r.status_code == 500):
+            # reject login
+            raise ZendeskExceptions('Unauthorised Login')
+        elif(r.status_code != 200):
+            # reject login
+            raise ZendeskExceptions('Unauthorised Login')
 
     def handleTickets(self):
         # /api/v2/tickets.json
