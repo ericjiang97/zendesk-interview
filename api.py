@@ -1,5 +1,6 @@
 import requests
 from Utils import Utils
+from zendeskExceptions import ZendeskExceptions
 
 class ZendeskAPI:
     def __init__(self):
@@ -14,7 +15,7 @@ class ZendeskAPI:
         r = requests.get('https://lorderikir.zendesk.com/api/v2/users.json', auth=(user, password))
         if(r.status_code != 200):
             # reject login
-            raise Exception('Unauthorised Login')
+            raise ZendeskExceptions('Unauthorised Login')
         else:
             user = r.json()
             self.id = user["users"][0]["id"]
@@ -39,7 +40,7 @@ class ZendeskAPI:
         if(r.status_code == 200):
             return r.json()
         elif(r.status_code == 404):
-            raise Exception('Ticket Not Found')
+            raise ZendeskExceptions('Ticket Not Found')
         elif(r.status_code == 500):
             return {"Unknown (Server) error occured. "}
 

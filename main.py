@@ -1,5 +1,6 @@
 from api import ZendeskAPI
 from Utils import Utils
+from zendeskExceptions import ZendeskExceptions
 
 ZendeskAPI = ZendeskAPI()
 Utils = Utils()
@@ -16,9 +17,10 @@ while not complete:
             try:
                 ticketID = int(input("Enter number: "))
                 Utils.printTickets([ZendeskAPI.handleTicket(ticketID)["ticket"]])
-
             except ValueError:
                 print("Please enter a valid number. ")
+            except ZendeskExceptions:
+                print("Ticket not Found")
         elif (mode.lower() == "exit"):
             complete = True
     else:
@@ -27,5 +29,5 @@ while not complete:
         password = input("Password: ")
         try:
             ZendeskAPI.handleLogin(email, password)
-        except Exception:
+        except ZendeskExceptions:
             print("Invalid Email or Password.")
