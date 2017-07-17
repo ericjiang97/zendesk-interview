@@ -2,7 +2,7 @@ from api import ZendeskAPI
 from Utils import Utils
 from zendeskExceptions import ZendeskExceptions
 
-ZendeskAPI = ZendeskAPI()
+ZendeskAPI = ZendeskAPI("https://lorderikir.zendesk.com")
 Utils = Utils()
 complete = False
 

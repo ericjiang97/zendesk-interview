@@ -1,8 +1,17 @@
 import requests
 from zendeskExceptions import ZendeskExceptions
 
+'''
+ZendeskAPI Class
+:author: 
+'''
 class ZendeskAPI:
-    def __init__(self):
+    def __init__(self, baseURL):
+        if not baseURL:
+            raise ZendeskExceptions("Base Zendesk URL Not Specified")
+        # configuration
+        self.baseURL = "https://lorderikir.zendesk.com"
+        # user profile
         self.name = ""
         self.id = ""
         self.email = ""
@@ -11,7 +20,14 @@ class ZendeskAPI:
         pass
 
     def handleLogin(self, user, password):
-        r = requests.get('https://lorderikir.zendesk.com/api/v2/users.json', auth=(user, password))
+        '''
+        Handles the Login Via the API (ensures the user can login)
+        :param user: the username
+        :param password: the password
+        :return: user profile
+        :raises: ZendeskExceptions when the user is not authenticated
+        '''
+        r = requests.get(self.baseURL + '/api/v2/users.json', auth=(user, password))
         print(r.status_code)
         if(r.status_code == 200):
             user = r.json()
@@ -29,9 +45,15 @@ class ZendeskAPI:
             raise ZendeskExceptions('Unauthorised Login')
 
     def handleTicket(self, id):
+        '''
+        Grabs Ticket(s) via the Zendesk API
+        :param id:  the ticket id you want to load, otherwise all when null
+        :return: when null: returns all the tickets, otherwises returns a certain ticket using the ticket id
+        :raises: ZemdeskExceptions when the ticket can not be found, when the user is unauthourised or when the service is unavialable
+        '''
         if(id):
         # /api/v2/tickets/:id.json
-            r = requests.get('https://lorderikir.zendesk.com/api/v2/tickets/' + str(id) + '.json',
+            r = requests.get(self.baseURL + '/api/v2/tickets/' + str(id) + '.json',
                              auth=(self.email, self.password))
             if (r.status_code == 200):
                 return r.json()
@@ -41,7 +63,7 @@ class ZendeskAPI:
                 return {"Unknown (Server) error occured. "}
         else:
         # /api/v2/tickets.json
-            r = requests.get('https://lorderikir.zendesk.com/api/v2/tickets.json?per_page=500', auth=(self.email, self.password))
+            r = requests.get(self.baseURL + '/api/v2/tickets.json?per_page=500', auth=(self.email, self.password))
             if(r.status_code == 200):
                 return r.json()
             elif(r.status_code == 500):
