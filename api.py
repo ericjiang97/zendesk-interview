@@ -6,11 +6,15 @@ ZendeskAPI Class
 :author: 
 '''
 class ZendeskAPI:
-    def __init__(self, baseURL):
-        if not baseURL:
+    def __init__(self, baseURL=""):
+        '''
+        Initialisation method
+        :param baseURL: the Zendesk Main Url.
+        '''
+        if baseURL == "":
             raise ZendeskExceptions("Base Zendesk URL Not Specified")
         # configuration
-        self.baseURL = "https://lorderikir.zendesk.com"
+        self.baseURL = baseURL
         # user profile
         self.name = ""
         self.id = ""
@@ -27,18 +31,22 @@ class ZendeskAPI:
         :return: user profile
         :raises: ZendeskExceptions when the user is not authenticated
         '''
-        r = requests.get(self.baseURL + '/api/v2/users.json', auth=(user, password))
+        try:
+            r = requests.get(self.baseURL + '/api/v2/users.json', auth=(user, password))
+        except ConnectionError:
+            raise ZendeskExceptions('Service is not available. Please check your internet connection or try again')
         print(r.status_code)
         if(r.status_code == 200):
             user = r.json()
             self.id = user["users"][0]["id"]
             self.name = user["users"][0]["name"]
+
             self.email = user["users"][0]["email"]
             self.password = password
             self.loggedIn = True
             return user
         elif(r.status_code == 500):
-            # reject login
+            # service is down (HTTP.Status_Error: 500)
             raise ZendeskExceptions('Service is currently unavialable. Please try again later.')
         else:
             # reject login
@@ -69,5 +77,18 @@ class ZendeskAPI:
             elif(r.status_code == 500):
                 return {"Unknown (Server) error occured. "}
 
+    def getUserProfile(self, id):
+        '''
+        Gets the user information provided by the id
+        :param id: the id provided by the zendesk API
+        :return: the user profile
+        '''
+        r = requests.get(self.baseURL + '/api/v2/users/'+str(id)+".json", auth=(self.email, self.password))
+        if(r.status_code == 200):
+            return r.json()
+        elif (r.status_code == 404):
+            raise ZendeskExceptions('User Not Found')
+        elif(r.status_code == 500):
+            return {"Unknown (Server) error occured. "}
 
 

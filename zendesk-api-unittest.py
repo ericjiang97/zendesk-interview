@@ -6,6 +6,9 @@ import json
 class ABLTestModule(unittest.TestCase):
     def test_checkInitialise(self):
         self.assertTrue(ZendeskAPI("https://lorderikir.zendesk.com").id == "", "Initalised Empty")
+        # ensure it raises an error when no baseURL is declared
+        with self.assertRaises(ZendeskExceptions):
+            ZendeskAPI("")
 
     def test_checkLogin(self):
         # make sure when it successfully logins it returns a name

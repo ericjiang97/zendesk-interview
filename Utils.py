@@ -4,6 +4,10 @@ class Utils:
 
     # Print Table Function
     def printTickets(self, array):
+        '''
+        Prints the Table into a more readable format
+        :param array: the array of tickets to be loaded
+        '''
         for i in range(0, len(array), 25):
             maxEnd = i + 25
             currentArray = array[i:maxEnd]
@@ -22,6 +26,10 @@ class Utils:
             input("Press Enter to continue...")
 
     def printMenu(self):
+        '''
+        Prints the main menu
+        :return:
+        '''
         print()
         print("Zendesk Ticket Viewer")
         print()
