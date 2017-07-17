@@ -21,7 +21,13 @@ Otherwise executed main.py
 The directory has 4 main files.
 
 ## api.py
-Handles the API Requests between the app and the server, this module depends on **Requests**
+Contains the main ZendeskAPI Class. This handles the API Requests between the app and the server, this module depends on **Requests**
+For Example the Following API Calls
+- Login
+- Display all tickets
+- Display a Ticket
+- Display info about a certian user
+
 
 ## main.py
 Is the main app file, this python file is the core of the program.
