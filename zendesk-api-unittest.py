@@ -13,6 +13,11 @@ class ABLTestModule(unittest.TestCase):
             ZendeskAPI().handleLogin("stupid@email.fake.com", "definatelyarealpassword")
 
     def test_ticket(self):
+        z = ZendeskAPI()
+        z.handleLogin("ericjiang.work@gmail.com", "DF4huJ3OPDsv")
+        # make sure it raises an exception when it doesn't find the ticket
+        with self.assertRaises(Exception):
+            z.handleTicket(40000213012301)
 
 
 

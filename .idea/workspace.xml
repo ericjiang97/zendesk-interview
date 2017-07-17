@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f8662ad-3af9-4de8-921a-22d9d2fb47d2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Utils.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.eslintignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.eslintrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.old.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/manifest.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/app/TopBar.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/app/tickets/TicketCard.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/base/App.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/base/App.test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/pages/Home.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/zendesk-relationshapes-logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/registerServiceWorker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/routes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/store.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zendesk-api-unittest.py" afterPath="$PROJECT_DIR$/zendesk-api-unittest.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,9 +13,9 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/zendesk_interview$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1500285492972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/zendesk_interview$zendesk_api_unittest.coverage" NAME="zendesk-api-unittest Coverage Results" MODIFIED="1500289959654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/zendesk_interview$zendesk_api_unittest.coverage" NAME="zendesk-api-unittest Coverage Results" MODIFIED="1500291201232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/zendesk_interview$Unittests_in_zendesk_api_unittest_py.coverage" NAME="Unittests in zendesk-api-unittest.py Coverage Results" MODIFIED="1500286302320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/zendesk_interview$main.coverage" NAME="main Coverage Results" MODIFIED="1500291074047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/zendesk_interview$main.coverage" NAME="main Coverage Results" MODIFIED="1500291197872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/zendesk_interview$api.coverage" NAME="api Coverage Results" MODIFIED="1500289699950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -83,8 +58,8 @@
       <file leaf-file-name="zendesk-api-unittest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zendesk-api-unittest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="90" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="90" />
+            <state relative-caret-position="289">
+              <caret line="17" column="74" lean-forward="false" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -109,10 +84,10 @@
       <list>
         <option value="$PROJECT_DIR$/arraybasedlist-unittest.py" />
         <option value="$PROJECT_DIR$/utils.py" />
-        <option value="$PROJECT_DIR$/zendesk-api-unittest.py" />
         <option value="$PROJECT_DIR$/Utils.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/api.py" />
+        <option value="$PROJECT_DIR$/zendesk-api-unittest.py" />
       </list>
     </option>
   </component>
@@ -183,7 +158,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.zendesk-api-unittest">
     <configuration default="false" name="api" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -433,8 +408,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.zendesk-api-unittest" />
+        <item index="0" class="java.lang.String" itemvalue="Python.zendesk-api-unittest" />
+        <item index="1" class="java.lang.String" itemvalue="Python.main" />
         <item index="2" class="java.lang.String" itemvalue="Python.api" />
         <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in zendesk-api-unittest.py" />
       </list>
@@ -460,6 +435,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -533,8 +509,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zendesk-api-unittest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="90" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="90" />
+        <state relative-caret-position="289">
+          <caret line="17" column="74" lean-forward="false" selection-start-line="17" selection-start-column="74" selection-end-line="17" selection-end-column="74" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
