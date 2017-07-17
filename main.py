@@ -14,7 +14,7 @@ while not complete:
         Utils.printMenu()
         mode = input("Enter mode: ")
         if (mode.lower() == "printall"):
-            newArray = ZendeskAPI.handleTickets()["tickets"]
+            newArray = ZendeskAPI.handleTicket()["tickets"]
             Utils.printTickets(newArray)
         if (mode.lower() == "print"):
             try:

@@ -27,7 +27,6 @@ class ABLTestModule(unittest.TestCase):
         expectedFile = json.loads(expectedFile)
         print(expectedFile)
         z.handleTicket(z.handleTicket(68))
-        self.ass
         # make sure it raises an exception when it doesn't find the ticket
         with self.assertRaises(ZendeskExceptions):
             z.handleTicket(40000213012301)

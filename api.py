@@ -1,5 +1,4 @@
 import requests
-from Utils import Utils
 from zendeskExceptions import ZendeskExceptions
 
 class ZendeskAPI:
@@ -24,29 +23,29 @@ class ZendeskAPI:
             return user
         elif(r.status_code == 500):
             # reject login
-            raise ZendeskExceptions('Unauthorised Login')
-        elif(r.status_code != 200):
+            raise ZendeskExceptions('Service is currently unavialable. Please try again later.')
+        else:
             # reject login
             raise ZendeskExceptions('Unauthorised Login')
 
-    def handleTickets(self):
-        # /api/v2/tickets.json
-        r = requests.get('https://lorderikir.zendesk.com/api/v2/tickets.json?per_page=500', auth=(self.email, self.password))
-        if(r.status_code == 200):
-            return r.json()
-        elif(r.status_code == 500):
-            return {"Unknown (Server) error occured. "}
-
-
     def handleTicket(self, id):
+        if(id):
+        # /api/v2/tickets/:id.json
+            r = requests.get('https://lorderikir.zendesk.com/api/v2/tickets/' + str(id) + '.json',
+                             auth=(self.email, self.password))
+            if (r.status_code == 200):
+                return r.json()
+            elif (r.status_code == 404):
+                raise ZendeskExceptions('Ticket Not Found')
+            elif (r.status_code == 500):
+                return {"Unknown (Server) error occured. "}
+        else:
         # /api/v2/tickets.json
-        r = requests.get('https://lorderikir.zendesk.com/api/v2/tickets/' + str(id) + '.json', auth=(self.email, self.password))
-        if(r.status_code == 200):
-            return r.json()
-        elif(r.status_code == 404):
-            raise ZendeskExceptions('Ticket Not Found')
-        elif(r.status_code == 500):
-            return {"Unknown (Server) error occured. "}
+            r = requests.get('https://lorderikir.zendesk.com/api/v2/tickets.json?per_page=500', auth=(self.email, self.password))
+            if(r.status_code == 200):
+                return r.json()
+            elif(r.status_code == 500):
+                return {"Unknown (Server) error occured. "}
 
 
 
