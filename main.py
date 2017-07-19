@@ -27,10 +27,11 @@ while not complete:
         elif (mode.lower() == "exit"):
             complete = True
     else:
+        print()
         print("You are currently not logged in. Please enter your email and password to continue")
         email = input("Email: ")
         password = input("Password: ")
         try:
             ZendeskAPI.handleLogin(email, password)
         except ZendeskExceptions as e:
-            print(e)
+            print("Error: " + e)
