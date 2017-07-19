@@ -35,7 +35,6 @@ class ZendeskAPI:
             r = requests.get(self.baseURL + '/api/v2/users.json', auth=(user, password))
         except ConnectionError:
             raise ZendeskExceptions('Service is not available. Please check your internet connection or try again')
-        print(r.status_code)
         if(r.status_code == 200):
             user = r.json()
             self.id = user["users"][0]["id"]
@@ -59,10 +58,25 @@ class ZendeskAPI:
         :return: when null: returns all the tickets, otherwises returns a certain ticket using the ticket id
         :raises: ZemdeskExceptions when the ticket can not be found, when the user is unauthourised or when the service is unavialable
         '''
+        targetURL = self.baseURL + '/api/v2/tickets/' + str(id) + '.json'
         if(id):
         # /api/v2/tickets/:id.json
-            r = requests.get(self.baseURL + '/api/v2/tickets/' + str(id) + '.json',
-                             auth=(self.email, self.password))
+            try:
+                r = requests.get(targetURL,
+                                 auth=(self.email, self.password))
+            except requests.exceptions.Timeout:
+            # attempt to retry
+                r = requests.get(targetURL,
+                                 auth=(self.email, self.password))
+            except requests.exceptions.TooManyRedirects:
+            # Tell the user their URL was bad and try a different one
+                return ("Bad Request: URL Was bad too many redirects")
+            except requests.exceptions.ConnectionError:
+                raise ZendeskExceptions('We cannot perform this request as there is no connection')
+            except requests.exceptions.RequestException as e:
+                 # catastrophic error. bail.
+                print(e)
+                return {"Catastrophic Event"}
             if (r.status_code == 200):
                 return r.json()
             elif (r.status_code == 404):

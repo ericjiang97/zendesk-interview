@@ -26,11 +26,13 @@ class ABLTestModule(unittest.TestCase):
     def test_ticket(self):
         z = ZendeskAPI("https://lorderikir.zendesk.com")
         z.handleLogin("ericjiang.work@gmail.com", "DF4huJ3OPDsv")
-        expectedFile = open("./test_data/68.json")
-        expectedFile = json.loads(expectedFile)
-        print(expectedFile)
-        z.handleTicket(z.handleTicket(68))
+        with open('./test_data/68.json') as data_file:
+            data = json.load(data_file)
+        actualResponse = z.handleTicket(68)
+        self.assertEqual(data, actualResponse, "Ensure that the ticket data matches")
+
         # make sure it raises an exception when it doesn't find the ticket
+
         with self.assertRaises(ZendeskExceptions):
             z.handleTicket(40000213012301)
 

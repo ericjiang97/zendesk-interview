@@ -15,8 +15,7 @@ If you are on a Linux/Mac Machine
 python3 main.py
 ```
 
-Otherwise executed main.py
-
+Otherwise execute main.py
 # About
 The directory has 4 main files.
 
@@ -28,7 +27,6 @@ For Example the Following API Calls
 - Display a Ticket
 - Display info about a certian user
 
-
 ## main.py
 Is the main app file, this python file is the core of the program.
 
@@ -37,6 +35,9 @@ Is a set of Utilities that transacts the api requests using `api.py` and beautif
 
 ## zendesk-api-unittest.py
 Is the unittesting library which uses Python's built in library
+
+# Design
+
 
 # LICENSE
 N/A
