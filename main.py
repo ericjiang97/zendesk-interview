@@ -32,5 +32,5 @@ while not complete:
         password = input("Password: ")
         try:
             ZendeskAPI.handleLogin(email, password)
-        except ZendeskExceptions:
-            print("Invalid Email or Password. You can reset your password.")
+        except ZendeskExceptions as e:
+            print(e)
