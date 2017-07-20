@@ -15,6 +15,14 @@ If you are on a Linux/Mac Machine
 python3 main.py
 ```
 
+# Login
+**Username** ericjiang.work@gmail.com
+
+**Password** DF4huJ3OPDsv
+
+**Base URL** https://lorderikir.zendesk.com
+
+
 Otherwise execute main.py
 # About
 The directory has 4 main files.

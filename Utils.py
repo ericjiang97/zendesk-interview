@@ -9,7 +9,7 @@ class Utils:
         :param array: the array of tickets to be loaded
         '''
         for i in range(0, len(array), 25):
-            maxEnd = i + 25
+            maxEnd = i + 25 # maximum end of the  range
             currentArray = array[i:maxEnd]
             headerString = "ID  | " + "Type" + 8 * " " + " | " + "Subject" + 21 * " " + " | "
             print(headerString)
